@@ -1,0 +1,514 @@
+python unit :-2 
+
+1.Using map() – Square of Numbers
+# Program to find squares of numbers using map()
+
+numbers = [1, 2, 3, 4, 5]
+squares = list(map(lambda x: x**2, numbers))
+
+print("Original List:", numbers)
+print("Squares:", squares)
+
+Output:
+
+Original List: [1, 2, 3, 4, 5]
+Squares: [1, 4, 9, 16, 25]
+
+2. Using filter() – Even Numbers
+# Program to filter even numbers using filter()
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+
+print("Even Numbers:", even_numbers)
+
+Output:
+
+Even Numbers: [2, 4, 6, 8]
+
+3. Using reduce() – Sum of List Elements
+# Program to find the sum of list elements using reduce()
+
+from functools import reduce
+
+numbers = [1, 2, 3, 4, 5]
+sum_of_numbers = reduce(lambda x, y: x + y, numbers)
+
+print("Sum:", sum_of_numbers)
+
+Output:
+
+Sum: 15
+
+4. Using lambda – Sorting by Second Element of Tuples
+# Program to sort a list of tuples based on the second element
+
+data = [(1, 3), (4, 1), (2, 2), (5, 0)]
+sorted_data = sorted(data, key=lambda x: x[1])
+
+print("Sorted Data:", sorted_data)
+
+Output:
+
+Sorted Data: [(5, 0), (4, 1), (2, 2), (1, 3)]
+
+5.Program for recursion and callback
+Factorial Using Recursion
+# Program to calculate factorial using recursion
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+num = 5
+print(f"Factorial of {num}:", factorial(num))
+
+Output:
+
+Factorial of 5: 120
+
+6.Write a Python program to read a student’s name, age, and course from the user and display the information in a formatted manner.
+
+name = input("Enter student's name: ")
+age = input("Enter student's age: ")
+course = input("Enter student's course: ")
+print("\n--- Student Details ---")
+print(f"Name : {name}")
+print(f"Age : {age}")
+print(f"Course : {course}")
+
+output:
+Enter student's name: sanju
+Enter student's age: 17
+Enter student's course: ABC
+
+--- Student Details ---
+Name : sanju
+Age : 17
+Course : ABC
+
+
+7. Write a Python program to check whether a given year is a leap year.
+
+year = int(input("Enter a year: "))
+
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print(f"{year} is a Leap Year")
+else:
+    print(f"{year} is Not a Leap Year")
+
+output:
+
+Enter a year: 2026
+2026 is Not a Leap Year
+
+
+8. Write a Python program to display the multiplication table of a given number.
+
+num = int(input("Enter a number: "))
+
+print(f"\nMultiplication Table of {num}:")
+
+for i in range(1, 11):
+    print(f"{num} x {i} = {num * i}")
+
+output:
+Enter a number: 3
+
+Multiplication Table of 3:
+3 x 1 = 3
+3 x 2 = 6
+3 x 3 = 9
+3 x 4 = 12
+3 x 5 = 15
+3 x 6 = 18
+3 x 7 = 21
+3 x 8 = 24
+3 x 9 = 27
+3 x 10 = 30
+
+9. Write a Python program to define a function that accepts two numbers and returns their greatest common divisor (GCD).
+
+def find_gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+
+gcd = find_gcd(num1, num2)
+
+print(f"The GCD of {num1} and {num2} is {gcd}")
+
+output:
+Enter first number: 2
+Enter second number: 4
+The GCD of 2 and 4 is 2
+
+10. Write a Python program that handles the following exceptions:
+•	Division by zero.
+Invalid input (non-numeric values).
+Use try, except, else, and finally blocks.
+
+try:
+
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+
+    result = num1 / num2
+
+except ValueError:
+    print("Error: Invalid input! Please enter numeric values.")
+
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+
+else:
+    print(f"Result of division: {result}")
+
+finally:
+    print("Program execution completed.")
+
+11.Write a Python program demonstrating single inheritance using a base class Person and a derived class Student.
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display_person(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+
+class Student(Person):
+
+    def __init__(self, name, age, course):
+
+        super().__init__(name, age)
+        self.course = course
+
+    def display_student(self):
+        self.display_person()
+        print(f"Course: {self.course}")
+
+
+name = input("Enter name: ")
+age = int(input("Enter age: "))
+course = input("Enter course: ")
+
+student = Student(name, age, course)
+
+
+print("\n--- Student Details ---")
+student.display_student()
+
+output:
+Enter name: sanju
+Enter age: 17
+Enter course: ABC
+
+--- Student Details ---
+Name: sanju
+Age: 17
+Course: ABC
+
+
+12.#To perform basic operations on Python lists.
+
+numbers = [10, 20, 30, 40]
+
+print("Original List:", numbers)
+
+numbers.append(50)
+print("After Append:", numbers)
+
+numbers.insert(2, 25)
+print("After Insert:", numbers)
+
+numbers.remove(30)
+print("After Remove:", numbers)
+
+print("Length of List:", len(numbers))
+
+print("List Elements:")
+for item in numbers:
+    print(item)
+Output:
+Original List: [10, 20, 30, 40]
+After Append: [10, 20, 30, 40, 50]
+After Insert: [10, 20, 25, 30, 40, 50]
+After Remove: [10, 20, 25, 40, 50]
+Length of List: 5
+
+13.To demonstrate tuple operations in Python.
+
+fruits = ("Apple", "Banana", "Mango", "Orange")
+
+print("Tuple Elements:", fruits)
+print("First Element:", fruits[0])
+print("Length of Tuple:", len(fruits))
+
+for item in fruits:
+    print(item)
+Output:
+Tuple Elements: ('Apple', 'Banana', 'Mango', 'Orange')
+First Element: Apple
+Length of Tuple: 4
+
+14.To perform basic set operations.
+
+set1 = {10, 20, 30, 40}
+set2 = {30, 40, 50, 60}
+
+print("Union:", set1.union(set2))
+print("Intersection:", set1.intersection(set2))
+print("Difference:", set1.difference(set2))
+
+set1.add(70)
+print("Updated Set:", set1)
+Output:
+Union: {50, 20, 40, 10, 60, 30}
+Intersection: {40, 30}
+Difference: {10, 20}
+
+15.To perform dictionary operations.
+
+student = {
+    "Name": "Priya",
+    "Age": 20,
+    "Department": "CSE"
+}
+
+print(student)
+
+student["Marks"] = 85
+
+for key, value in student.items():
+    print(key, ":", value)
+Output:
+{'Name': 'Priya', 'Age': 20, 'Department': 'CSE'}
+Name : Priya
+Age : 20
+Department : CSE
+Marks : 85
+
+16.To perform string operations.
+
+text = "Python Programming"
+
+print(text.upper())
+print(text.lower())
+print(len(text))
+print(text.replace("Python", "Java"))
+Output:
+PYTHON PROGRAMMING
+python programming
+18
+Java Programming
+
+17.To find the largest element in a list.
+
+numbers = [12, 45, 67, 23, 89, 34]
+
+largest = max(numbers)
+
+print("List:", numbers)
+print("Largest Element:", largest)
+Output:
+List: [12, 45, 67, 23, 89, 34]
+Largest Element: 89
+
+18.To count the frequency of characters in a string.
+
+text = "python"
+
+frequency = {}
+
+for ch in text:
+    if ch in frequency:
+        frequency[ch] += 1
+    else:
+        frequency[ch] = 1
+
+print(frequency)
+Output:
+{'p': 1, 'y': 1, 't': 1, 'h': 1, 'o': 1, 'n': 1}
+
+19.To remove duplicate elements from a list.
+
+numbers = [10, 20, 30, 20, 40, 10, 50]
+
+unique_numbers = list(set(numbers))
+
+print("Original List:", numbers)
+print("Unique List:", unique_numbers)
+Output:
+Original List: [10, 20, 30, 20, 40, 10, 50]
+Unique List: [40, 10, 50, 20, 30]
+
+20.To reverse a string using slicing.
+
+text = "Engineering"
+
+reversed_text = text[::-1]
+
+print("Original String:", text)
+print("Reversed String:", reversed_text)
+Output:
+Original String: Engineering
+Reversed String: gnireenignE
+
+21. To merge two dictionaries.
+
+dict1 = {"A": 1, "B": 2}
+dict2 = {"C": 3, "D": 4}
+
+merged_dict = dict1 | dict2
+
+print("Dictionary 1:", dict1)
+print("Dictionary 2:", dict2)
+print("Merged Dictionary:", merged_dict)
+Output:
+Dictionary 1: {'A': 1, 'B': 2}
+Dictionary 2: {'C': 3, 'D': 4}
+Merged Dictionary: {'A': 1, 'B': 2, 'C': 3, 'D': 4}
+
+22.To find the sum of two numbers using a user-defined function.
+
+def add(a, b):
+    return a + b
+
+result = add(10, 20)
+
+print("Sum =", result)
+Output:
+Sum = 30
+
+23.To check whether a number is even or odd using function.
+
+def check_even_odd(num):
+
+    if num % 2 == 0:
+        print(num, "is Even Number")
+    else:
+        print(num, "is Odd Number")
+
+check_even_odd(15)
+Output:
+15 is Odd Number
+
+24.To calculate sum of list elements using function.
+
+def list_sum(numbers):
+    return sum(numbers)
+
+data = [10, 20, 30, 40]
+
+print("Sum =", list_sum(data))
+Output:
+Sum = 100
+
+25.To find the largest among three numbers without using max() function.
+
+def maximum(a, b, c):
+
+    if a >= b and a >= c:
+        return a
+    elif b >= a and b >= c:
+        return b
+    else:
+        return c
+
+result = maximum(25, 40, 15)
+
+print("Largest Number =", result)
+Output:
+Largest Number = 40
+
+26.To calculate factorial of a number using recursion.
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+num = 5
+
+print("Factorial =", factorial(num))
+Output:
+Factorial = 120
+
+27.To check whether a string is palindrome using recursion.
+
+def palindrome(text):
+
+    if len(text) <= 1:
+        return True
+
+    if text[0] == text[-1]:
+        return palindrome(text[1:-1])
+    else:
+        return False
+
+word = "madam"
+
+if palindrome(word):
+    print(word, "is Palindrome")
+else:
+    print(word, "is Not Palindrome")
+Output:
+madam is Palindrome
+
+28.To generate Fibonacci series using iterative method.
+
+n = 6
+
+a = 0
+b = 1
+
+print("Fibonacci Series:")
+
+for i in range(n):
+    print(a, end=" ")
+ 
+    c = a + b
+    a = b
+    b = c
+Output:
+Fibonacci Series:
+0 1 1 2 3 5
+
+29.To demonstrate the use of lambda function.
+Program:
+square = lambda x: x * x
+
+print("Square =", square(5))
+Output:
+Square = 25
+
+30.To demonstrate callback function in Python.
+
+def display(message):
+    print("Message:", message)
+
+def callback_function(func):
+    func("Welcome to Python")
+
+callback_function(display)
+Output:
+Message: Welcome to Python
+
+31.To reverse a string using recursion.
+
+def reverse_string(text):
+    if len(text) == 0:
+        return text
+    else:
+        return reverse_string(text[1:]) + text[0]
+
+print(reverse_string("Python"))
+Output:
+nohtyP
